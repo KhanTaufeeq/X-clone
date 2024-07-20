@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<section class="container">
+  <div class="head">
+    <img src="{% static 'img/x-clone.png' %}" alt="x" />
+    <h1>Baate App</h1>
+  </div>
+  <hr />
+  <div class="form-content">
+    <form
+      action="/edit/{{edit_tweet.id}}/"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Your Name..."
+        value="{{edit_tweet.name}}"
+      />
+      <br />
+      <br />
+      <textarea
+        name="body"
+        id="body"
+        placeholder="Express yourself here.."
+        rows="3"
+        cols="50"
+      >
+{{edit_tweet.body}}</textarea
+      >
+      <br />
+      <br />
+      {% if edit_tweet.image %}
+      <img src="{{edit_tweet.image.url}}" alt="edit_image" id="tweet-pic" />
+      {% endif %}
+      <br>
+      <br>
+        <input type="file" name="image" id="image" />
+    <br>
+    <br>
+        <div class="cancel-btn-div">
+            <a href="/" id="cancel-anchor">Cancel</a>
+            <input type="submit" value="Update" id="update" />
+        </div>
+    </form>
+  </div>
+</section>
+
+{% endblock content %}

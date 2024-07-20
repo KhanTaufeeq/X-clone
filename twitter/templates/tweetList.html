@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<section class="container">
+  <div class="head">
+    <img src="{% static 'img/x-clone.png' %}" alt="x" />
+    <h1>Baate App</h1>
+  </div>
+  <hr />
+  <div class="form-content">
+    <form action="add/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="name" id="name" placeholder="Your Name..." />
+      <br />
+      <br>
+      <textarea
+        name="body"
+        id="body"
+        placeholder="Express yourself here.."
+        rows = "3"
+        cols = "50"
+      ></textarea>
+      <br />
+      <br>
+      <div class="submit">
+        <input type="file" name="image" id="image" />
+        <input type="submit" value="Post" id="post"/>
+      </div>
+    </form>
+  </div>
+</section>
+<section class="output">
+  <div class="form-output">
+    <ul>
+      {% for tweet in tweet %}
+      <li>
+        <div class="tweet-body">
+          <div class="profile-pic">
+            <img src="{% static 'img/profile-pic.png' %}" alt="" />
+          </div>
+          <div class="tweet-content">
+            <div class="name-date">
+              <p id="tweet-name">{{tweet.name}}</p>
+              <p id="created_at">{{tweet.created_at}}</p>
+            </div>
+            {% if tweet.image %} {% comment %}
+            <div id="tweet-pic"></div>
+            {% endcomment %}
+            <img src="{{tweet.image.url}}" alt="img" id="tweet-pic" />
+            {% endif %}
+            <p id="tweet-something-paragraph">{{tweet.body}}</p>
+            <div class="like-div">
+              <a href="like/{{tweet.id}}/">
+                <img
+                  src="{% static 'img/heart.png' %}"
+                  alt="heart"
+                  id="heart"
+                />
+              </a>
+              <p>{{tweet.like_count}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="menu-div">
+          <img src="{% static 'img/menu-dot.svg' %}" alt="" id="menu-dots" />
+        </div> 
+        <div class="menu-options">
+          <a href="delete/{{tweet.id}}/">Delete</a>
+          <br/>
+          <a href="edit/{{tweet.id}}/">Edit</a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% endblock content %}

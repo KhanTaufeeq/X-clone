@@ -1,0 +1,165 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --primary-color: black;
+    --secondary-color: #1e1f20;
+}
+body{
+    background-color: var(--secondary-color);
+    width: 35%;
+    margin: 10px auto;
+}
+.container {
+    background-color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+.container .head {
+    display: flex;
+    align-items: center;
+}
+.container .head h1{
+    color: white;
+}
+.container .head img{
+    width: 10%;
+}
+.container .form-content {
+    padding: 1rem;
+}
+.container .form-content .submit{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+#name {
+    width: 72%;
+    padding: 0.8rem 0.5rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+#body{
+    padding: 0.8rem 0.5rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+#post{
+    width: 15%;
+    padding: 0.3rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bolder;
+    background: linear-gradient(to right, red, yellow);
+}
+#image {
+    color: white;
+    border: 1px solid gray;
+    padding: 0.3rem;
+    border-radius: 5px;
+}
+.output{
+    background-color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+.output .form-output ul li {
+    border-bottom: 1px solid lightgray;
+    padding: 1rem;
+    position: relative;
+}
+.output .form-output ul li .tweet-body {
+    display: flex;
+    gap: 5%;
+}
+.output .form-output ul li .tweet-body .profile-pic {
+    flex-basis: 10%;
+}
+.output .form-output ul li .tweet-body .profile-pic img{
+    width: 100%;
+}
+.output .form-output ul li .tweet-body .tweet-content .name-date{
+    display: flex;
+    width: 75%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items:flex-end;
+}
+.output .form-output ul{
+    list-style-type: none;
+}
+.output .form-output .like-div{
+    display: flex;
+    align-items: center;
+    width: 10%;
+    gap: 5%;
+    justify-content: space-between;
+}
+.output .form-output p{
+    color: white;
+}
+.output .form-output ul li .menu-div {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+}
+.output .form-output ul li .menu-options {
+    display: none;
+    top: 15%;
+    right: 2%;
+    position: absolute;
+}
+.output .form-output ul li .menu-options a {
+    color: white;
+    text-decoration: none;
+}
+.output .form-output ul li .menu-options a:hover{
+    color: gray;
+}
+#tweet-name{
+    font-size: 1.5vw;
+}
+#tweet-something-paragraph{
+    margin: 10px 0;
+    font-size: 1.2vw;
+}
+#tweet-pic{
+    width: 300px;
+    height: 250px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+#created_at{
+    color: gray;
+}
+#heart{
+    width: 80%;
+}
+#cancel-anchor {
+    width: 15%;
+    padding: 0.2rem;
+    border:none;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bolder;
+    background: linear-gradient(to right, red, yellow);
+}
+body>section>div.form-content>form>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#update {
+    width: 15%;
+    padding: 0.3rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bolder;
+    background: linear-gradient(to right, green, white);
+}
